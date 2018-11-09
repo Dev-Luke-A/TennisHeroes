@@ -19,7 +19,7 @@ public class HomeScreen extends AppCompatActivity {
             public void onClick(View v) {
                 final MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.click);
                 mp.start();
-               Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
               startActivity(intent);
             }
         });
