@@ -1,5 +1,6 @@
 package com.game.tennisheroes;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ public class HomeScreen extends AppCompatActivity {
             public void onClick(View v) {
                 final MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.click);
                 mp.start();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
 
