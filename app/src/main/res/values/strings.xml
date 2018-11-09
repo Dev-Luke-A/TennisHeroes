@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Tennis Heroes</string>
+    <string name="textview">TextView</string>
+    <string name="warning_this_is_a_test">Warning this is a test</string>
 </resources>
