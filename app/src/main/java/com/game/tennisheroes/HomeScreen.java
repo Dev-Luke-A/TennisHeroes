@@ -32,8 +32,6 @@ public class HomeScreen extends AppCompatActivity {
         scaleAnimation.setInterpolator(new DecelerateInterpolator(1.0f));
         iv.startAnimation(scaleAnimation);
 
-        //yeeto my mosquito
-
         ImageButton button1 = findViewById(R.id.imageButton1);
         iv.setOnClickListener(new View.OnClickListener() {
             @Override
