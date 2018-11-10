@@ -11,7 +11,6 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 public class HomeScreen extends AppCompatActivity {
      MediaPlayer mp1;
