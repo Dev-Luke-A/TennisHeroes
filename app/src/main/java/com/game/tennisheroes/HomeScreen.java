@@ -10,13 +10,14 @@ import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class HomeScreen extends AppCompatActivity {
      MediaPlayer mp1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Toast.makeText(getApplicationContext(), "hi", Toast.LENGTH_SHORT).show();
 
         setContentView(R.layout.activity_home_screen);
         int UI_OPTIONS = 0;
