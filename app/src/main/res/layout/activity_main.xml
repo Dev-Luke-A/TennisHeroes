@@ -12,13 +12,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal"></LinearLayout>
+        android:orientation="horizontal"
+        android:weightSum="1">
 
-    <LinearLayout
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal"></LinearLayout>
+        android:scaleType="fitCenter"
+        android:background="#b1e1e1"
+android:src="@drawable/tournamentfinalfive"
+
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
