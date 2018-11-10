@@ -11,6 +11,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 public class HomeScreen extends AppCompatActivity {
      MediaPlayer mp1;
@@ -27,6 +28,8 @@ public class HomeScreen extends AppCompatActivity {
         scaleAnimation.setInterpolator(new DecelerateInterpolator(1.0f));
         iv.startAnimation(scaleAnimation);
 
+        //yeeto my mosquito
+
         ImageButton button1 = findViewById(R.id.imageButton1);
 
         mp1 = MediaPlayer.create(getApplicationContext(), R.raw.hsmusicfinal);
@@ -40,6 +43,7 @@ public class HomeScreen extends AppCompatActivity {
                 mp.start();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
+
                 finish();
             }
         });
@@ -48,7 +52,8 @@ public class HomeScreen extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-       mp1.stop();
+        mp1.stop();
+
     }
     @Override
     protected void onResume() {
