@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 public void onBackPressed(){
-        Intent intent = new Intent(getApplicationContext(), HomeScreen.class);
-        startActivity(intent);
+    Intent intent = new Intent(getApplicationContext(), HomeScreen.class);
+    startActivity(intent);
         finish();
 }
 }

@@ -1,11 +1,16 @@
 package com.game.tennisheroes;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.transition.Explode;
+import android.transition.Fade;
+import android.transition.Slide;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
@@ -17,6 +22,8 @@ public class HomeScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_home_screen);
         int UI_OPTIONS = 0;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -75,8 +82,9 @@ public class HomeScreen extends AppCompatActivity {
                 final MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.click);
                 mp.start();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+                    startActivity(intent);
                 finish();
+
             }
         });
 
@@ -84,7 +92,7 @@ public class HomeScreen extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-       mp1.stop();
+       mp1.pause();
     }
     @Override
     protected void onResume() {
