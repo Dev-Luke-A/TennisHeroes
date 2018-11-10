@@ -1,21 +1,15 @@
 package com.game.tennisheroes;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.transition.Explode;
-import android.transition.Fade;
-import android.transition.Slide;
 import android.view.View;
-import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 public class HomeScreen extends AppCompatActivity {
      MediaPlayer mp1;
