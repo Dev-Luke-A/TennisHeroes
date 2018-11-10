@@ -24,7 +24,7 @@ public class HomeScreen extends AppCompatActivity {
 
         setContentView(R.layout.activity_home_screen);
 
-        final ImageView iv = findViewById(R.id.imageView122);
+       final ImageView iv = findViewById(R.id.imageView122);
         Animation scaleAnimation = new ScaleAnimation(0, 1, 0, 1,Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
         scaleAnimation.setDuration(2000);
