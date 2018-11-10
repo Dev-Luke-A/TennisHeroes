@@ -9,12 +9,14 @@
     android:weightSum="5"
     tools:context=".HomeScreen">
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView122"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1.25"
+        android:scaleType="centerInside"
         android:src="@drawable/title"
+        android:background="#b1e1e1"
         tools:ignore="ContentDescription" />
 
     <LinearLayout
