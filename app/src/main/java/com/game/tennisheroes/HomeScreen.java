@@ -2,17 +2,13 @@ package com.game.tennisheroes;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
-import android.view.animation.OvershootInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageButton;
-import android.widget.Toast;
 import android.widget.ImageView;
 
 public class HomeScreen extends AppCompatActivity {
@@ -32,7 +28,6 @@ public class HomeScreen extends AppCompatActivity {
         scaleAnimation.setInterpolator(new DecelerateInterpolator(1.0f));
         iv.startAnimation(scaleAnimation);
 
-        //yeeto my mosquito
 
         ImageButton button1 = findViewById(R.id.imageButton1);
         iv.setOnClickListener(new View.OnClickListener() {
