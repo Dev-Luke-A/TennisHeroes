@@ -17,6 +17,10 @@
 
     </LinearLayout>
 
+     <!--purple title looks better in my opinion-->
+    <!--maybe a black border around letters to -->
+    <!--make them stand out???-->
+
     <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="match_parent"
