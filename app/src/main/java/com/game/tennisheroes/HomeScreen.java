@@ -13,15 +13,16 @@ import android.widget.ImageView;
 
 public class HomeScreen extends AppCompatActivity {
      MediaPlayer mp1;
+     MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+       mp = MediaPlayer.create(getApplicationContext(), R.raw.click);
 
         setContentView(R.layout.activity_home_screen);
 
        final ImageView iv = findViewById(R.id.imageView122);
-        Animation scaleAnimation = new ScaleAnimation(0, 1, 0, 1,Animation.RELATIVE_TO_SELF, 0.5f,
+        Animation scaleAnimation = new ScaleAnimation(0.4f, 1, 0.4f, 1,Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
         scaleAnimation.setDuration(2000);
         scaleAnimation.setFillAfter(true);
@@ -68,7 +69,7 @@ public class HomeScreen extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.click);
+
                 mp.start();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
