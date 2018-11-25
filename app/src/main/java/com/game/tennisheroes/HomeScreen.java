@@ -37,7 +37,7 @@ public class HomeScreen extends AppCompatActivity {
         scaleAnimation1.setFillAfter(true);
         scaleAnimation3.setDuration(100);
         scaleAnimation3.setFillAfter(true);
-        final Animation scaleAnimation2 = new ScaleAnimation(1.2f ,1f, 1.2f, 1,Animation.RELATIVE_TO_SELF, 0.5f,
+        final Animation scaleAnimation2 = new ScaleAnimation(1.2f ,1f, 1.2f,1f,Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f),scaleAnimation4 = new ScaleAnimation(0.8f, 0.7f, 0.8f, 0.7f,Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF,0.5f);
         scaleAnimation2.setDuration(100);
