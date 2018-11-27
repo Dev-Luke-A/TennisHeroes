@@ -6,6 +6,7 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,11 +21,19 @@ public class MainActivity extends AppCompatActivity {
             UI_OPTIONS = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
         }
         getWindow().getDecorView().setSystemUiVisibility(UI_OPTIONS);
+        ImageButton b1 = findViewById(R.id.imageButton4);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainGameActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 public void onBackPressed(){
-    Intent intent = new Intent(getApplicationContext(), HomeScreen.class);
-    startActivity(intent);
-        finish();
+    finish();
+
+
 }
 }

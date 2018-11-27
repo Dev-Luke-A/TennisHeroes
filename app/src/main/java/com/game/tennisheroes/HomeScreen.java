@@ -44,6 +44,30 @@ public class HomeScreen extends AppCompatActivity {
         scaleAnimation2.setFillAfter(true);
         scaleAnimation4.setDuration(100);
         scaleAnimation4.setFillAfter(true);
+        Runnable myRunnable = new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            ImageButton b12 = findViewById(R.id.imageButton1);
+                            b12.startAnimation(scaleAnimation3);
+
+                        }
+                    });
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+        };
+        Thread myThread = new Thread(myRunnable);
+        myThread.start();
         scaleAnimation1.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -99,30 +123,7 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-        Runnable myRunnable = new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
 
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            ImageButton b12 = findViewById(R.id.imageButton1);
-                            b12.startAnimation(scaleAnimation3);
-
-                        }
-                    });
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-                }
-            };
-        Thread myThread = new Thread(myRunnable);
-        myThread.start();
     }
     @Override
     protected void onPause() {
