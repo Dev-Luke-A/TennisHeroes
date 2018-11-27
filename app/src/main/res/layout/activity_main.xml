@@ -25,7 +25,7 @@
         android:layout_weight="1"
         android:scaleType="fitCenter"
         android:background="#b1e1e1"
-        android:src="@mipmap/tournamentfinalprple"
+        android:src="@mipmap/tournamentfinalprpleunblurried"
 
         />
 
