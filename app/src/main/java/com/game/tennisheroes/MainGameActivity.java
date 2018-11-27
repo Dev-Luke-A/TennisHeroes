@@ -7,11 +7,8 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.animation.TranslateAnimation;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 public class MainGameActivity extends AppCompatActivity {
    SensorManager sensorManager;
@@ -26,18 +23,20 @@ public class MainGameActivity extends AppCompatActivity {
         SensorEventListener listener = (new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
+
                 float x = sensorEvent.values[0];
                 int max = 450;
                 int min = -450;
                 if (x * 75 > max) x = max/75;
                 if (x * 75 < min) x = min/75;
                 TranslateAnimation translateAnimation = new TranslateAnimation(pos,x * -75,0,0);
-                translateAnimation.setDuration(1);
+                translateAnimation.setDuration(100);
                 translateAnimation.setFillAfter(true);
                 final ImageView iv = findViewById(R.id.iv1);
                 iv.startAnimation(translateAnimation);
-                pos =  (x * -75);
+                pos = (x * -75);
             }
+
 
             @Override
             public void onAccuracyChanged(Sensor sensor, int i) {
