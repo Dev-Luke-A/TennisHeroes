@@ -9,10 +9,13 @@
     android:weightSum="8.5"
     tools:context=".MainGameActivity">
 
-    <Space
+
+    <TextView
+        android:id="@+id/space"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:text="" />
 
     <ImageView
         android:id="@+id/iv1"
