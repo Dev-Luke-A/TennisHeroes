@@ -1,12 +1,16 @@
 package com.game.tennisheroes;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -14,14 +18,35 @@ import android.widget.ImageView;
 
 public class HomeScreen extends AppCompatActivity {
      MediaPlayer mp1;
+     float width;
      MediaPlayer mp;
   String anim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home_screen);
+
+
+        final ImageView backgroundOne = (ImageView) findViewById(R.id.background_one);
+        final ImageView backgroundTwo = (ImageView) findViewById(R.id.background_two);
+        final ValueAnimator animator = ValueAnimator.ofFloat(0.0f, 1.0f);
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.setDuration(10000L);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                final float progress = (float) animation.getAnimatedValue();
+                final float width = backgroundOne.getWidth();
+                final float translationX = width * progress;
+                backgroundOne.setTranslationX(translationX);
+                backgroundTwo.setTranslationX(translationX - width);
+            }
+        });
+        animator.start();
        mp = MediaPlayer.create(getApplicationContext(), R.raw.click);
 
-        setContentView(R.layout.activity_home_screen);
+
        final ImageButton b1 = findViewById(R.id.imageButton1);
        final ImageView iv = findViewById(R.id.imageView122);
         final Animation scaleAnimation = new ScaleAnimation(0.4f, 1, 0.4f, 1,Animation.RELATIVE_TO_SELF, 0.5f,
