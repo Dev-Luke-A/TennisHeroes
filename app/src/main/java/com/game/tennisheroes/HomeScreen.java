@@ -3,16 +3,13 @@ package com.game.tennisheroes;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.ScaleAnimation;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -20,7 +17,7 @@ public class HomeScreen extends AppCompatActivity {
      MediaPlayer mp1;
      float width;
      MediaPlayer mp;
-  String anim;
+     String anim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
