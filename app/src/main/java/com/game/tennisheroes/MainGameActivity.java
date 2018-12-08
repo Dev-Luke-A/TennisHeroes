@@ -124,9 +124,9 @@ public class MainGameActivity extends AppCompatActivity {
                                 currentx = currentx+ 10;
                                 xjump = -xjump;
                             }
-                            if(currentx-ball.getLeft()+(ball.getWidth())/2-ball.getScaleX()*150 > (iv.getTranslationX()+400) - 200){
-                                if(currentx-ball.getLeft()+(ball.getWidth())/2-ball.getScaleX()*150 < (iv.getTranslationX()+400) + 200){
-                                if(currenty+ball.getTop()+(ball.getHeight()/2)+ball.getScaleY()*150 > 1500 && currenty+ball.getTop()+(ball.getHeight()/2)+ball.getScaleY()*150 < 1550) {
+                            if(currentx-ball.getLeft()+(ball.getWidth())/2-ball.getScaleX()*150 > (iv.getTranslationX()+400) - 159){
+                                if(currentx-ball.getLeft()+(ball.getWidth())/2-ball.getScaleX()*150 < (iv.getTranslationX()+400) + 150){
+                                if(currenty+ball.getTop()+(ball.getHeight()) > 1500 && currenty+ball.getTop()-(ball.getHeight())< 1550) {
                                     if(yjump > 0) {
                                         yjump = -yjump;
                                     }
