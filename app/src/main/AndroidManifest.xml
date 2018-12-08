@@ -22,10 +22,11 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainGameActivity"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".MainGameActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity android:name=".ShopActivity"></activity>
     </application>
 
 </manifest>
