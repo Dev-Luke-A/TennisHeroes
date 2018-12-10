@@ -22,7 +22,7 @@ public class HomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
-
+// Register the two cloud backgrounds and animate them
 
         final ImageView backgroundOne = (ImageView) findViewById(R.id.background_one);
         final ImageView backgroundTwo = (ImageView) findViewById(R.id.background_two);
@@ -43,7 +43,7 @@ public class HomeScreen extends AppCompatActivity {
         animator.start();
        mp = MediaPlayer.create(getApplicationContext(), R.raw.click);
 
-
+//Set animations
        final ImageButton b1 = findViewById(R.id.imageButton1);
        final ImageView iv = findViewById(R.id.imageView122);
         final Animation scaleAnimation = new ScaleAnimation(0.4f, 1, 0.4f, 1,Animation.RELATIVE_TO_SELF, 0.5f,
@@ -66,6 +66,7 @@ public class HomeScreen extends AppCompatActivity {
         scaleAnimation2.setFillAfter(true);
         scaleAnimation4.setDuration(100);
         scaleAnimation4.setFillAfter(true);
+        //Start animation of button
         Runnable myRunnable = new Runnable() {
             @Override
             public void run() {
@@ -90,6 +91,7 @@ public class HomeScreen extends AppCompatActivity {
         };
         Thread myThread = new Thread(myRunnable);
         myThread.start();
+        //Animate the button back to  its original size
         scaleAnimation1.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -130,6 +132,7 @@ public class HomeScreen extends AppCompatActivity {
 
             }
         });
+        //Start music
         mp1 = MediaPlayer.create(getApplicationContext(), R.raw.hsmusicfinal);
         mp1.setLooping(true);
         mp1.start();
@@ -147,6 +150,7 @@ public class HomeScreen extends AppCompatActivity {
 
 
     }
+    //Stop music when closed
     @Override
     protected void onPause() {
         super.onPause();
