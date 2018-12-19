@@ -104,7 +104,7 @@ public class MainGameActivity extends AppCompatActivity {
                                 mp1.start();
                             }
                             //Bottom bounce
-                            if(currenty+ball.getTop()+(ball.getHeight()/2)+ball.getScaleY()*150 > height){
+                            if(currenty + ball.getHeight()/2 > height){
                                 ball.setTranslationY(ball.getTranslationY() - 10);
                                 currenty = currenty - 10;
                                 yjump = -yjump;
@@ -112,29 +112,29 @@ public class MainGameActivity extends AppCompatActivity {
 
                             }
                             //Top bounce
-                            if(currenty-ball.getTop()+(ball.getHeight()/2)-ball.getScaleY()*150 < 0){
+                            if(currenty + ball.getHeight()/2 < 0){
                                 ball.setTranslationY(ball.getTranslationY() + 10);
                                 currenty = currenty + 10;
                                 yjump = -yjump;
 
                             }
                             //Right bounce
-                            if(currentx+ball.getLeft()+(ball.getWidth())/2+ball.getScaleX()*150 > width ) {
+                            if(currentx + ball.getWidth()/2 > width ) {
                                 ball.setTranslationX(ball.getTranslationX() - 10);
                                 currentx = currentx - 10;
                                 xjump = -xjump;
 
                             }
                             //Left bounce
-                            if(currentx-ball.getLeft()+(ball.getWidth())/2-ball.getScaleX()*150 < 0) {
+                            if(currentx + ball.getWidth()/2 < 0) {
                                 ball.setTranslationX(ball.getTranslationX() + 10);
                                 currentx = currentx+ 10;
                                 xjump = -xjump;
                             }
                             //Man bounce
-                            if(currentx-ball.getLeft()+(ball.getWidth())/2-ball.getScaleX()*150 > (iv.getTranslationX()+400) - 159){
-                                if(currentx-ball.getLeft()+(ball.getWidth())/2-ball.getScaleX()*150 < (iv.getTranslationX()+400) + 150){
-                                if(currenty+ball.getTop()+(ball.getHeight()) > 1500 && currenty+ball.getTop()-(ball.getHeight())< 1550) {
+                            if((currentx + ball.getWidth())/2 > (iv.getTranslationX()+400) - 150){
+                                if((currentx + ball.getWidth())/2 < (iv.getTranslationX()+400) + 150){
+                                if(currenty+(ball.getHeight()/2) > iv.getX() + iv.getHeight()/2 && currenty+(ball.getHeight()/2)< iv.getX() + iv.getHeight()/2.2) {
                                     if(yjump > 0) {
                                         yjump = -yjump;
                                     }
@@ -144,25 +144,25 @@ public class MainGameActivity extends AppCompatActivity {
                             }
                             //Y pos of ball
                             float yposs = currentx-ball.getLeft()+(ball.getWidth())/2-ball.getScaleX()*150;
-                            textView.setText(String.valueOf( yposs));
+                            textView.setText(String.valueOf(ball.getTop()));
                             float ypos = currenty+ball.getTop()+ballheight + 200;
-                            float scalexconstant = (float) 0.5;
+                            float scalexconstant = (float) 0.4;
                             float quarterheight = height/4;
                             float threequarterheight = quarterheight*3;
                             //"Bounce" up and down
-                            if(Math.abs(ypos-(quarterheight)) < Math.abs(ypos-threequarterheight)){
-                                float qdifference = quarterheight -ypos;
-
-                                ball.setScaleX(scalexconstant+Math.abs(qdifference)/2000);
-                                ball.setScaleY(scalexconstant+Math.abs(qdifference)/2000);
-
-                            }else{
-                                float tdifference = threequarterheight-ypos;
-
-                                ball.setScaleX(scalexconstant+Math.abs(tdifference)/2000);
-                                ball.setScaleY(scalexconstant+Math.abs(tdifference)/2000);
-
-                            }
+//                            if(Math.abs(ypos-(quarterheight)) < Math.abs(ypos-threequarterheight)){
+//                                float qdifference = quarterheight -ypos;
+//
+//                                ball.setScaleX(scalexconstant+Math.abs(qdifference)/2000);
+//                                ball.setScaleY(scalexconstant+Math.abs(qdifference)/2000);
+//
+//                            }else{
+//                                float tdifference = threequarterheight-ypos;
+//
+//                                ball.setScaleX(scalexconstant+Math.abs(tdifference)/2000);
+//                                ball.setScaleY(scalexconstant+Math.abs(tdifference)/2000);
+//
+//                            }
                             //Move
                           TranslateAnimation animation = new TranslateAnimation(currentx,currentx+xjump ,currenty,currenty + yjump);
                           ball.startAnimation(animation);
