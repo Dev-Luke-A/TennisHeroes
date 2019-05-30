@@ -22,6 +22,7 @@ public class Animation extends AppCompatActivity {
             public void onFinish() {
                 Drawable d = getResources().getDrawable(R.drawable.scntwo);
                 iv.setImageDrawable(d);
+                dr1 = false;
             }
 
             public void onTick(long millisUntilFinished) {
