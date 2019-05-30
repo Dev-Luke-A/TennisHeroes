@@ -20,32 +20,34 @@ public class Animation extends AppCompatActivity {
             public void onFinish() {
                 Drawable d = getResources().getDrawable(R.drawable.scntwo);
                 iv.setImageDrawable(d);
+                new CountDownTimer(4000, 1000) {
+                    public void onFinish() {
+                        Drawable d2 = getResources().getDrawable(R.drawable.scnthree);
+                        iv.setImageDrawable(d2);
+                        new CountDownTimer(4000, 1000) {
+                            public void onFinish() {
+                                Intent i = new Intent(getApplicationContext(), HomeScreen.class);
+                                startActivity(i);
+                            }
+
+                            public void onTick(long millisUntilFinished) {
+                                // millisUntilFinished    The amount of time until finished.
+                            }
+                        }.start();
+                    }
+
+                    public void onTick(long millisUntilFinished) {
+                        // millisUntilFinished    The amount of time until finished.
+                    }
+                }.start();
             }
 
             public void onTick(long millisUntilFinished) {
                 // millisUntilFinished    The amount of time until finished.
             }
         }.start();
-        new CountDownTimer(4000, 1000) {
-            public void onFinish() {
-                Drawable d2 = getResources().getDrawable(R.drawable.scnthree);
-                iv.setImageDrawable(d2);
-            }
 
-            public void onTick(long millisUntilFinished) {
-                // millisUntilFinished    The amount of time until finished.
-            }
-        }.start();
-        new CountDownTimer(4000, 1000) {
-            public void onFinish() {
-                Intent i = new Intent(getApplicationContext(), HomeScreen.class);
-                startActivity(i);
-            }
 
-            public void onTick(long millisUntilFinished) {
-                // millisUntilFinished    The amount of time until finished.
-            }
-        }.start();
 
 
 
