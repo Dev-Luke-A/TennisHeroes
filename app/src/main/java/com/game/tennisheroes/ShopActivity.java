@@ -16,8 +16,10 @@ Typeface tf = HomeScreen.tf;
         setContentView(R.layout.activity_shop);
         prefs = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
+
 TextView tv2 = findViewById(R.id.textView2);
 tv2.setTypeface(tf);
+
 TextView tv3 = findViewById(R.id.textView3);
 tv3.setTypeface(tf);
 TextView tv4 = findViewById(R.id.textView4);
