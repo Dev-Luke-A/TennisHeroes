@@ -36,11 +36,20 @@ public class Animation extends AppCompatActivity {
                 // millisUntilFinished    The amount of time until finished.
             }
         }.start();
+        new CountDownTimer(4000, 1000) {
+            public void onFinish() {
+                Intent i = new Intent(getApplicationContext(), HomeScreen.class);
+                startActivity(i);
+            }
+
+            public void onTick(long millisUntilFinished) {
+                // millisUntilFinished    The amount of time until finished.
+            }
+        }.start();
 
 
 
-        Intent i = new Intent(getApplicationContext(), HomeScreen.class);
-        startActivity(i);
+
 
     }
 }
