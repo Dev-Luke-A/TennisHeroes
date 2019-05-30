@@ -2,6 +2,7 @@ package com.game.tennisheroes;
 
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -15,16 +16,31 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Map;
+import java.util.Set;
+
 public class HomeScreen extends AppCompatActivity {
      MediaPlayer mp1;
      float width;
      MediaPlayer mp;
      public static Typeface tf;
+     SharedPreferences prefs;
      String anim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
+        prefs = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        Boolean animation = prefs.getBoolean("anim", true);
+        if(animation){
+
+            animation = false;
+            editor.putBoolean("anim",animation);
+            Intent intent = new Intent(getApplicationContext(), com.game.tennisheroes.Animation.class);
+            startActivity(intent);
+        }
         tf = Typeface.createFromAsset(getAssets(), "Fonts/quriosityregular.ttf");
 // Register the two cloud backgrounds and animate them
 

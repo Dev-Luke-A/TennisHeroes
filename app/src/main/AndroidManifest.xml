@@ -25,8 +25,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainGameActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".ShopActivity"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".ShopActivity" />
+        <activity android:name=".Animation"></activity>
     </application>
 
 </manifest>
