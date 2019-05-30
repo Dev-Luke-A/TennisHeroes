@@ -12,14 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/skyClouds" />
+        android:src="@drawable/skyclouds" />
 
     <ImageView
         android:id="@+id/background_two"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/skyClouds" />
+        android:src="@drawable/skyclouds" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
