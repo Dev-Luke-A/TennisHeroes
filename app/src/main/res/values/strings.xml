@@ -2,5 +2,8 @@
     <string name="app_name">Tennis Heroes</string>
     <string name="textview">TextView</string>
     <string name="warning_this_is_a_test">Warning this is a test</string>
-    <string name="todo">TODO</string>
+    <string name="trainers">TRAINERS</string>
+    <string name="hat">HAT</string>
+    <string name="racket">RACKET</string>
+
 </resources>

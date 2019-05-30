@@ -15,15 +15,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="3">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
-          android:gravity="center"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:gravity="center"
+            android:text="@string/racket"
+            android:textSize="24sp" />
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -31,7 +33,15 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/upgradebtn"
-            android:scaleType="centerInside"/>
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:gravity="center"/>
 
     </LinearLayout>
 
@@ -44,10 +54,28 @@
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:gravity="center"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:gravity="center"
+            android:text="SHOES"
+            android:textSize="24sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/upgradebtn"
+
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:gravity="center"/>
 
     </LinearLayout>
 
@@ -63,7 +91,25 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="TextView" />
+            android:text="@string/hat"
+            android:textSize="24sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/upgradebtn"
+
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:gravity="center"/>
 
     </LinearLayout>
 

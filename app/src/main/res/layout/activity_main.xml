@@ -15,7 +15,7 @@
         android:layout_height="186dp"
         android:layout_weight="1"
         android:background="#b1e1e1"
-        android:contentDescription="@string/todo"
+
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/shopbutton" />
 
@@ -25,7 +25,7 @@
         android:layout_height="100dp"
         android:layout_weight="1"
         android:background="#b1e1e1"
-        android:contentDescription="@string/todo"
+
         android:scaleType="fitCenter"
 
         android:src="@drawable/tournamentfinalprpleunblurried" />
