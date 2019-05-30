@@ -2,9 +2,12 @@ package com.game.tennisheroes;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
+
+import java.util.Timer;
 
 public class Animation extends AppCompatActivity {
 
@@ -12,27 +15,30 @@ public class Animation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation);
-        ImageView iv = findViewById(R.id.imageViews);
+       final ImageView iv = findViewById(R.id.imageViews);
+        new CountDownTimer(4000, 1000) {
+            public void onFinish() {
+                Drawable d = getResources().getDrawable(R.drawable.scntwo);
+                iv.setImageDrawable(d);
+            }
 
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Drawable d = getResources().getDrawable(R.drawable.scntwo);
-        iv.setImageDrawable(d);
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Drawable d2 = getResources().getDrawable(R.drawable.scnthree);
-        iv.setImageDrawable(d2);
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            public void onTick(long millisUntilFinished) {
+                // millisUntilFinished    The amount of time until finished.
+            }
+        }.start();
+        new CountDownTimer(4000, 1000) {
+            public void onFinish() {
+                Drawable d2 = getResources().getDrawable(R.drawable.scnthree);
+                iv.setImageDrawable(d2);
+            }
+
+            public void onTick(long millisUntilFinished) {
+                // millisUntilFinished    The amount of time until finished.
+            }
+        }.start();
+
+
+
         Intent i = new Intent(getApplicationContext(), HomeScreen.class);
         startActivity(i);
 

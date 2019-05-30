@@ -1,5 +1,6 @@
 package com.game.tennisheroes;
 
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,11 +9,13 @@ import android.widget.TextView;
 
 public class ShopActivity extends AppCompatActivity {
 Typeface tf = HomeScreen.tf;
+    SharedPreferences prefs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
-
+        prefs = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
 TextView tv2 = findViewById(R.id.textView2);
 tv2.setTypeface(tf);
 TextView tv3 = findViewById(R.id.textView3);
