@@ -3,6 +3,7 @@ package com.game.tennisheroes;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,8 +21,10 @@ public class Animation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation);
-       final ImageView iv = findViewById(R.id.imageViews);
 
+       final ImageView iv = findViewById(R.id.imageViews);
+        MediaPlayer mPlayer = MediaPlayer.create(Animation.this, R.raw.voiceover);
+        mPlayer.start();
      ct = new CountDownTimer(4000, 1000) {
         public void onFinish() {
             Drawable d = getResources().getDrawable(R.drawable.scntwo);

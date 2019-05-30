@@ -8,7 +8,7 @@
     android:background="#b1e1e1"
     android:orientation="vertical"
     android:weightSum="4"
-    tools:context=".MainActivity">
+    tools:context=".ShopActivity">
 
 
     <LinearLayout
@@ -33,6 +33,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/upgradebtn"
+            android:onClick="one"
             android:scaleType="centerInside" />
 
         <TextView
@@ -42,6 +43,7 @@
             android:layout_weight="1"
             android:text="TextView"
             android:textSize="30sp"
+
             android:gravity="center"/>
 
     </LinearLayout>
@@ -67,7 +69,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/upgradebtn"
-
+            android:onClick="two"
             android:scaleType="centerInside" />
 
         <TextView
@@ -102,7 +104,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/upgradebtn"
-
+            android:onClick="three"
             android:scaleType="centerInside" />
 
         <TextView
