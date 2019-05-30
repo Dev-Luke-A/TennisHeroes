@@ -17,45 +17,46 @@ public class Animation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation);
        final ImageView iv = findViewById(R.id.imageViews);
+while (1==1) {
+    new CountDownTimer(4000, 1000) {
+        public void onFinish() {
+            Drawable d = getResources().getDrawable(R.drawable.scntwo);
+            iv.setImageDrawable(d);
+            dr1 = false;
+        }
+
+        public void onTick(long millisUntilFinished) {
+            // millisUntilFinished    The amount of time until finished.
+        }
+    }.start();
+    if (!dr1) {
 
         new CountDownTimer(4000, 1000) {
             public void onFinish() {
-                Drawable d = getResources().getDrawable(R.drawable.scntwo);
-                iv.setImageDrawable(d);
-                dr1 = false;
+                Drawable d2 = getResources().getDrawable(R.drawable.scnthree);
+                iv.setImageDrawable(d2);
+                dr2 = false;
             }
 
             public void onTick(long millisUntilFinished) {
                 // millisUntilFinished    The amount of time until finished.
             }
         }.start();
-        if(!dr1) {
+    }
+    if (!dr2) {
+        new CountDownTimer(4000, 1000) {
+            public void onFinish() {
+                Intent i = new Intent(getApplicationContext(), HomeScreen.class);
+                startActivity(i);
+                finish();
+            }
 
-            new CountDownTimer(4000, 1000) {
-                public void onFinish() {
-                    Drawable d2 = getResources().getDrawable(R.drawable.scnthree);
-                    iv.setImageDrawable(d2);
-                    dr2 = false;
-                }
-
-                public void onTick(long millisUntilFinished) {
-                    // millisUntilFinished    The amount of time until finished.
-                }
-            }.start();
-        }
-        if(!dr2) {
-            new CountDownTimer(4000, 1000) {
-                public void onFinish() {
-                    Intent i = new Intent(getApplicationContext(), HomeScreen.class);
-                    startActivity(i);
-                }
-
-                public void onTick(long millisUntilFinished) {
-                    // millisUntilFinished    The amount of time until finished.
-                }
-            }.start();
-        }
-
+            public void onTick(long millisUntilFinished) {
+                // millisUntilFinished    The amount of time until finished.
+            }
+        }.start();
+    }
+}
 
 
 
