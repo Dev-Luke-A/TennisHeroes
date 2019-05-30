@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -43,6 +44,10 @@ public class MainGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
+        //RotateCP
+        ImageView cpman = findViewById(R.id.iv);
+        RotateAnimation rotateAnimation = new RotateAnimation(cpman.getRotation(),cpman.getRotation()+180,cpman.getWidth()/2, cpman.getHeight()/2);
+        cpman.startAnimation(rotateAnimation);
 //Immersive mode
         int UI_OPTIONS = 0;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -100,48 +105,10 @@ public class MainGameActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            if(mp1.getCurrentPosition() > duration - 10000){
-                                mp1.start();
-                            }
-                            //Bottom bounce
-                            if(currenty + ball.getHeight()/2 > height){
-                                ball.setTranslationY(ball.getTranslationY() - 10);
-                                currenty = currenty - 10;
-                                yjump = -yjump;
+                            //CPman
 
-
-                            }
-                            //Top bounce
-                            if(currenty + ball.getHeight()/2 < 0){
-                                ball.setTranslationY(ball.getTranslationY() + 10);
-                                currenty = currenty + 10;
-                                yjump = -yjump;
-
-                            }
-                            //Right bounce
-                            if(currentx + ball.getWidth()/2 > width ) {
-                                ball.setTranslationX(ball.getTranslationX() - 10);
-                                currentx = currentx - 10;
-                                xjump = -xjump;
-
-                            }
-                            //Left bounce
-                            if(currentx + ball.getWidth()/2 < 0) {
-                                ball.setTranslationX(ball.getTranslationX() + 10);
-                                currentx = currentx+ 10;
-                                xjump = -xjump;
-                            }
                             //Man bounce
-                            if((currentx + ball.getWidth())/2 > (iv.getTranslationX()+400) - 150){
-                                if((currentx + ball.getWidth())/2 < (iv.getTranslationX()+400) + 150){
-                                if(currenty+(ball.getHeight()/2) > iv.getX() + iv.getHeight()/2 && currenty+(ball.getHeight()/2)< iv.getX() + iv.getHeight()/2.2) {
-                                    if(yjump > 0) {
-                                        yjump = -yjump;
-                                    }
-                                }
-                                }
 
-                            }
                             //Y pos of ball
                             float yposs = currentx-ball.getLeft()+(ball.getWidth())/2-ball.getScaleX()*150;
                             textView.setText(String.valueOf(ball.getTop()));
@@ -150,19 +117,19 @@ public class MainGameActivity extends AppCompatActivity {
                             float quarterheight = height/4;
                             float threequarterheight = quarterheight*3;
                             //"Bounce" up and down
-//                            if(Math.abs(ypos-(quarterheight)) < Math.abs(ypos-threequarterheight)){
-//                                float qdifference = quarterheight -ypos;
-//
-//                                ball.setScaleX(scalexconstant+Math.abs(qdifference)/2000);
-//                                ball.setScaleY(scalexconstant+Math.abs(qdifference)/2000);
-//
-//                            }else{
-//                                float tdifference = threequarterheight-ypos;
-//
-//                                ball.setScaleX(scalexconstant+Math.abs(tdifference)/2000);
-//                                ball.setScaleY(scalexconstant+Math.abs(tdifference)/2000);
-//
-//                            }
+                            if(Math.abs(ypos-(quarterheight)) < Math.abs(ypos-threequarterheight)){
+                                float qdifference = quarterheight -ypos;
+
+                                ball.setScaleX(scalexconstant+Math.abs(qdifference)/2000);
+                                ball.setScaleY(scalexconstant+Math.abs(qdifference)/2000);
+
+                            }else{
+                                float tdifference = threequarterheight-ypos;
+
+                                ball.setScaleX(scalexconstant+Math.abs(tdifference)/2000);
+                                ball.setScaleY(scalexconstant+Math.abs(tdifference)/2000);
+
+                            }
                             //Move
                           TranslateAnimation animation = new TranslateAnimation(currentx,currentx+xjump ,currenty,currenty + yjump);
                           ball.startAnimation(animation);
@@ -211,7 +178,7 @@ public class MainGameActivity extends AppCompatActivity {
             return true;
         }
     }
-    //Syop the music when closed
+    //Stop the music when closed
     @Override
     protected void onPause() {
         super.onPause();

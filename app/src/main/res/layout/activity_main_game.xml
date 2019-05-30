@@ -17,30 +17,35 @@
         android:scaleX="0.4"
         android:scaleY="0.4"
         android:src="@drawable/ball" />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="8.5">
 
-    <TextView
-        android:id="@+id/space"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="" />
+        android:orientation="vertical"
+        android:weightSum="8">
 
-    <ImageView
-        android:id="@+id/iv1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="3.5"
-        android:scaleType="centerInside"
-        android:src="@drawable/man" />
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            android:scaleType="centerInside"
+            android:src="@drawable/man" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="4" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/space"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="" />
+
+        <ImageView
+            android:id="@+id/iv1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            android:scaleType="centerInside"
+            android:src="@drawable/man" />
+
+    </LinearLayout>
 </FrameLayout>
