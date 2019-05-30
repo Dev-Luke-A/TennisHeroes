@@ -14,10 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="186dp"
         android:layout_weight="1"
+        android:background="#b1e1e1"
         android:contentDescription="@string/todo"
-        app:srcCompat="@drawable/shopbuttondraft"
         android:scaleType="fitCenter"
-        android:background="#b1e1e1"/>
+        app:srcCompat="@drawable/shopbutton" />
 
     <ImageButton
         android:id="@+id/imageButton4"
