@@ -37,7 +37,7 @@ public class HomeScreen extends AppCompatActivity {
         if(animation){
 
             animation = false;
-            editor.putBoolean("anim",animation);
+            editor.putBoolean("anim",animation).apply();
             Intent intent = new Intent(getApplicationContext(), com.game.tennisheroes.Animation.class);
             startActivity(intent);
         }
@@ -181,7 +181,9 @@ public class HomeScreen extends AppCompatActivity {
         super.onResume();
        mp1.start();
     }
-    }
-
-
+public void anim(View v){
+    Intent intent = new Intent(getApplicationContext(), com.game.tennisheroes.Animation.class);
+    startActivity(intent);
+}
+}
 

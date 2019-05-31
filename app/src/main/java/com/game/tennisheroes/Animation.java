@@ -56,8 +56,8 @@ public class Animation extends AppCompatActivity {
             public void onFinish() {
                 SharedPreferences prefs = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
-                boolean animation = false;
-                editor.putBoolean("anim",animation);
+
+                editor.putBoolean("anim",false);
 
                 finish();
             }
@@ -70,8 +70,13 @@ public class Animation extends AppCompatActivity {
 
 
 }
-
+    public void onBackPressed(){
 
 
     }
+
+}
+
+
+
 
