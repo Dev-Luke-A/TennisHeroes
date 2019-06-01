@@ -29,9 +29,9 @@ Typeface tf = HomeScreen.tf;
     TextView tv7;
     TextView tv8;
     TextView tv9;
-    float one;
-    float two;
-    float three;
+    public float one;
+    public float two;
+    public float three;
     float coins;
     float price1;
     float price2;
@@ -49,13 +49,16 @@ Typeface tf = HomeScreen.tf;
         pb3 = findViewById(R.id.progressBar3);
         prefs = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         editor = prefs.edit();
-        coins = prefs.getFloat("coins", 10);
-        one = prefs.getFloat("one", 0);
-        two = prefs.getFloat("two", 0);
-        three = prefs.getFloat("three", 0);
+        coins = prefs.getFloat("coins", 1000);
+        one = prefs.getFloat("one", 1);
+        two = prefs.getFloat("two", 1);
+        three = prefs.getFloat("three", 1);
         price1 = prefs.getFloat("pr1", 10);
         price2 = prefs.getFloat("pr2", 10);
         price3 = prefs.getFloat("pr3", 10);
+        pr1.setText(String.valueOf(price1 + "coins"));
+        pr2.setText(String.valueOf(price2 + "coins"));
+        pr3.setText(String.valueOf(price3 + "coins"));
         tv2    = findViewById(R.id.textView1);
         tv3 = findViewById(R.id.textView2);
         tv4 = findViewById(R.id.textView3);
@@ -97,7 +100,8 @@ Typeface tf = HomeScreen.tf;
             tv3.setText(String.valueOf(one));
             pb1.setProgress((int) one);
             price1 = (price1 * 2);
-            pr1.setText(String.valueOf(price1) + "Coin(s)");
+
+            pr1.setText(String.valueOf(price1) + "coins");
             editor.putFloat("pr1", price1).apply();
             editor.putFloat("one", one).apply();
             editor.putFloat("coins", coins).apply();
@@ -113,7 +117,7 @@ Typeface tf = HomeScreen.tf;
         tv6.setText(String.valueOf(two));
         pb2.setProgress((int)two);
         price2 = (price2 * 2);
-        pr1.setText(String.valueOf(price2) + "Coin(s)");
+        pr2.setText(String.valueOf(price2) + "coins");
         editor.putFloat("pr2", price2).apply();
         editor.putFloat("two", two).apply();
             editor.putFloat("coins", coins).apply();
@@ -123,19 +127,21 @@ Typeface tf = HomeScreen.tf;
         }
     }
     public void three(View view) {
-        if (coins>= price3){
-            coins = coins - price3;
-        three++;
-        tv8.setText(String.valueOf(three));
-        pb3.setProgress((int)three);
-        price3 = (price3 * 2);
-        pr1.setText(String.valueOf(price3) + "Coin(s)");
-        editor.putFloat("pr3", price3).apply();
-        editor.putFloat("three", three).apply();
-            editor.putFloat("coins", coins).apply();
-            tv9.setText(String.valueOf(coins));
-        }else{
-            Toast.makeText(getApplicationContext(), "Not enough coins", Toast.LENGTH_SHORT).show();
+        if (three < 6) {
+            if (coins >= price3) {
+                coins = coins - price3;
+                three++;
+                tv8.setText(String.valueOf(three));
+                pb3.setProgress((int) three);
+                price3 = (price3 * 2);
+                pr3.setText(String.valueOf(price3) + "coins)");
+                editor.putFloat("pr3", price3).apply();
+                editor.putFloat("three", three).apply();
+                editor.putFloat("coins", coins).apply();
+                tv9.setText(String.valueOf(coins));
+            } else {
+                Toast.makeText(getApplicationContext(), "Not enough coins", Toast.LENGTH_SHORT).show();
+            }
         }
     }
     public void onBackPressed(){

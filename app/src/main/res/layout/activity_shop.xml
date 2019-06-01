@@ -301,7 +301,7 @@
             android:layout_height="87dp"
             android:layout_weight="1"
             android:foregroundTint="#ABF"
-            android:max="50" />
+            android:max="5" />
 
     </LinearLayout>
 

@@ -27,12 +27,13 @@ public class MainGameActivity extends AppCompatActivity {
     SensorManager sensorManager;
     Boolean firstTouch = true;
     Sensor accelerometer;
+
     long startTime;
     float currentx = 0;
     float currenty = 0;
     TextView textView;
     public int anim = 0;
-    int xjump = 5;
+    int xjump = 1;
     int yjump = 5;
     int speed = 1;
     Runnable myRunnable;
@@ -40,6 +41,10 @@ public class MainGameActivity extends AppCompatActivity {
     Long difference;
     MediaPlayer mp1;
    boolean touch = false;
+    float ypos;
+    float xpos;
+    float mypos;
+    float mxpos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +78,7 @@ public class MainGameActivity extends AppCompatActivity {
 //Register Sensors
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
         SensorEventListener sensorEventListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
@@ -95,7 +101,7 @@ public class MainGameActivity extends AppCompatActivity {
         //Register accelerometer listener
         sensorManager.registerListener(sensorEventListener, accelerometer, SensorManager.SENSOR_DELAY_UI);
        final ImageView ball = findViewById(R.id.ball);
-       float ballwidth = ball.getWidth();
+       final float ballwidth = ball.getWidth();
        final float ballheight = ball.getHeight();
         Runnable myRunnable = new Runnable() {
             @Override
@@ -105,31 +111,18 @@ public class MainGameActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            //CPman
 
+                            //X/Y pos of ball
+                            ypos = currenty+ball.getTop()+ballheight;
+                            xpos = currentx+ball.getLeft();
+                            //X/Y pos of man
+                            mypos = iv.getTop();
+                            mxpos = iv.getTranslationX()+iv.getLeft();
                             //Man bounce
-
-                            //Y pos of ball
-                            float yposs = currentx-ball.getLeft()+(ball.getWidth())/2-ball.getScaleX()*150;
-                            textView.setText(String.valueOf(ball.getTop()));
-                            float ypos = currenty+ball.getTop()+ballheight + 200;
-                            float scalexconstant = (float) 0.4;
-                            float quarterheight = height/4;
-                            float threequarterheight = quarterheight*3;
-                            //"Bounce" up and down
-                            if(Math.abs(ypos-(quarterheight)) < Math.abs(ypos-threequarterheight)){
-                                float qdifference = quarterheight -ypos;
-
-                                ball.setScaleX(scalexconstant+Math.abs(qdifference)/2000);
-                                ball.setScaleY(scalexconstant+Math.abs(qdifference)/2000);
-
-                            }else{
-                                float tdifference = threequarterheight-ypos;
-
-                                ball.setScaleX(scalexconstant+Math.abs(tdifference)/2000);
-                                ball.setScaleY(scalexconstant+Math.abs(tdifference)/2000);
-
+                            if(xpos > mxpos - 50 && xpos < mxpos + 50 && ypos > mypos - 50 && ypos < mypos + 50 ){
+                             yjump = -yjump;
                             }
+
                             //Move
                           TranslateAnimation animation = new TranslateAnimation(currentx,currentx+xjump ,currenty,currenty + yjump);
                           ball.startAnimation(animation);

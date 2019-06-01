@@ -52,11 +52,14 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imageViewm"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/man" />
+                app:srcCompat="@drawable/lvl1hat"
+                android:background="@drawable/man"
+                android:scaleType="centerCrop"
+                android:rotation="180"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -132,7 +135,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        app:srcCompat="@mipmap/hatone" />
+                        app:srcCompat="@drawable/lvl1hat">
+
+                    </ImageView>
 
                     <Space
                         android:layout_width="match_parent"
