@@ -27,7 +27,7 @@
             android:name=".MainGameActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".ShopActivity" />
-        <activity android:name=".Animation"></activity>
+        <activity android:name=".Animation" />
     </application>
 
 </manifest>

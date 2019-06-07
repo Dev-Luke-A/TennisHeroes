@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MainGameActivity.class);
                 startActivity(intent);
+                finish();
             }
 
 
@@ -83,11 +85,12 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), ShopActivity.class);
                 startActivity(intent);
                 finish();
+
             }
         });
     }
 public void onBackPressed(){
-
+    ActivityCompat.finishAffinity(this);
     finish();
 }
 

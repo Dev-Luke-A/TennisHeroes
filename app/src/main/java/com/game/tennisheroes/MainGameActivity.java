@@ -1,6 +1,10 @@
 package com.game.tennisheroes;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -8,8 +12,11 @@ import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.renderscript.Sampler;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,36 +27,44 @@ import android.widget.ImageView;
 import android.widget.Space;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Timer;
 
-public class MainGameActivity extends AppCompatActivity {
+public class MainGameActivity extends AppCompatActivity{
     SensorManager sensorManager;
     Boolean firstTouch = true;
     Sensor accelerometer;
-
+    public static float progress = 0;
+    int hit;
+    float power;
     long startTime;
+//    public static float angle;
     float currentx = 0;
     float currenty = 0;
     TextView textView;
     public int anim = 0;
-    int xjump = 1;
-    int yjump = 5;
+    float xjump = 0;
+    float yjump = 2;
     int speed = 1;
     Runnable myRunnable;
     float pos = 0;
+    static public int x;
+    static public int y;
+    static public float startx = 0;
+    static public float starty = 0;
+    static public boolean ynpaint;
     Long difference;
     MediaPlayer mp1;
-   boolean touch = false;
+   public static boolean touch = false;
     float ypos;
     float xpos;
-    float mypos;
-    float mxpos;
+    static public float mypos;
+    static public float mxpos;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_game);
+
         //RotateCP
+setContentView(R.layout.activity_main_game);
         ImageView cpman = findViewById(R.id.iv);
         RotateAnimation rotateAnimation = new RotateAnimation(cpman.getRotation(),cpman.getRotation()+180,cpman.getWidth()/2, cpman.getHeight()/2);
         cpman.startAnimation(rotateAnimation);
@@ -111,25 +126,42 @@ public class MainGameActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-
-                            //X/Y pos of ball
-                            ypos = currenty+ball.getTop()+ballheight;
-                            xpos = currentx+ball.getLeft();
-                            //X/Y pos of man
-                            mypos = iv.getTop();
-                            mxpos = iv.getTranslationX()+iv.getLeft();
-                            //Man bounce
-                            if(xpos > mxpos - 50 && xpos < mxpos + 50 && ypos > mypos - 50 && ypos < mypos + 50 ){
-                             yjump = -yjump;
+                            if(touch) {
+                                progress++;
+                            }else {
+                                if(!touch) {
+                                    //X/Y pos of man
+                                    mypos = iv.getTop();
+                                    mxpos = iv.getTranslationX() + iv.getLeft() + (iv.getWidth() / 2);
+                                }
                             }
 
+
+                            //X/Y pos of ball
+                            ypos = ball.getTranslationY()+ball.getTop() + ballheight;
+                            xpos = ball.getTranslationX()+ball.getLeft() + (ball.getWidth()/2);
+                            textView.setText(String.valueOf(touch));
+                            //Man bounce
+                            if(hit>0){
+                                hit--;
+                                if(xpos > mxpos - (iv.getWidth()/10) && xpos < mxpos + (iv.getWidth()/10) && ypos < mypos - iv.getHeight() && ypos > mypos - (iv.getHeight()+10) ){
+                                    yjump = -yjump*power;
+                                    xjump = (yjump/(starty -mypos))*(startx-mxpos);
+                                    hit = 0;
+
+                                }
+                            }
+
+
                             //Move
-                          TranslateAnimation animation = new TranslateAnimation(currentx,currentx+xjump ,currenty,currenty + yjump);
-                          ball.startAnimation(animation);
+                         // TranslateAnimation animation = new TranslateAnimation(currentx,currentx+xjump ,currenty,currenty + yjump);
+                          //ball.startAnimation(animation);
                           ball.bringToFront();
+
+                            ball.setTranslationX(currentx + xjump);
+                            ball.setTranslationY(currenty + yjump);
                             currentx = currentx+xjump;
                             currenty = currenty + yjump;
-
                         }
                     });
                     //Pause
@@ -152,19 +184,28 @@ public class MainGameActivity extends AppCompatActivity {
         //if (finger is up)
         if (action == MotionEvent.ACTION_UP) {
             //Start the ball again, stop the timer
+            power = (progress/150);
+            hit = 100;
             touch = false;
             long endTime = System.currentTimeMillis();
             difference = (endTime - startTime);
-            textView.setText(String.valueOf(difference/500));
-            firstTouch = true;
+            ynpaint = false;
 
+            firstTouch = true;
+            ynpaint = false;
              return false;
         } else {
-            //Stop the ball, start a timer
+
+            //Stop the man, start a timer
+            final ImageView iv = findViewById(R.id.iv1);
+            ynpaint = true;
+            startx = e.getX();
+            starty = e.getY();
             touch = true;
+
             difference = System.currentTimeMillis() - startTime;
-            textView.setText(String.valueOf(difference/500));
             if (firstTouch) {
+                progress = 0;
                 startTime = System.currentTimeMillis();
                 firstTouch = false;
             }
@@ -182,7 +223,21 @@ public class MainGameActivity extends AppCompatActivity {
         super.onResume();
         mp1.start();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        progress = 0;
+        ynpaint = false;
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        ActivityCompat.finishAffinity(this);
+        startActivity(intent);
+        finish();
+
+    }
 }
+
+
 
 
 
